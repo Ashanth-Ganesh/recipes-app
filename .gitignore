@@ -8,6 +8,8 @@ env/
 
 # Environment
 .env
+*.code-workspace
+*.log
 
 # Node
 node_modules/
