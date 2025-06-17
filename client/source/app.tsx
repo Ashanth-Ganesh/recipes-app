@@ -1,9 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Appbar from './Appbar.tsx'
+import LoginPage from './login.tsx'
+import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Appbar />
-  </StrictMode>,
+	<StrictMode>
+		<HelmetProvider>
+			<LoginPage />
+		</HelmetProvider>
+	</StrictMode>,
 )
