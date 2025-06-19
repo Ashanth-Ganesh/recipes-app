@@ -3,20 +3,23 @@ import { Visibility, VisibilityOff, Restaurant } from '@mui/icons-material';
 import { useState } from 'react';
 import { Helmet } from "react-helmet-async";
 
-const LoginPage = () => {
+const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => setShowPassword((show) => !show);
+
+  const [showConfirmationPassword, setShowConfirmationPassword] = useState(false);
+  const handleToggleConfirmationPassword = () => setShowConfirmationPassword((show) => !show);
 
   return (
     <>
       <Helmet>
-        <title>Login | RecipeApp</title>
-        <meta name="description" content="Login to RecipeApp to manage your favorite recipes and meal plans." />    
+        <title>Signup | RecipeApp</title>
+        <meta name="description" content="Signup to create your own account to save and schedule your favorite recipes and manage your kitchen inventory." />
       </Helmet>
-      
+
       <Box
         sx={{
-          backgroundImage: `url(/assets/login-bg.png)`,
+          backgroundImage: `url(/assets/signup-bg.png)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           minHeight: '100vh',
@@ -36,12 +39,20 @@ const LoginPage = () => {
             textAlign: 'center'
           }}
         >
-          <Restaurant sx={{ fontSize: 48, mb: 1 }} />
+          <Restaurant sx={{ fontSize: 48}} />
           <Typography variant="h5" fontWeight="bold" gutterBottom>
-            Login
+            Register
           </Typography>
 
-          <Box component="form" noValidate sx={{ mt: 2 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
+			<TextField
+				label="Username"
+				type="text"
+				variant='outlined'
+				fullWidth
+				required
+				margin='normal'
+			/>
             <TextField
               label="Email Address"
               type="email"
@@ -70,23 +81,48 @@ const LoginPage = () => {
                 }}
             />
 
-            <Link href="#" underline="hover" variant="body2" display="block" textAlign="right" mb={2}>
-              Forgot password?
-            </Link>
+			<TextField
+              label="Confirm Password"
+              type={showConfirmationPassword ? 'text' : 'password'}
+              variant="outlined"
+              fullWidth
+              required
+              margin="normal"
+              slotProps={{
+                input: {
+                    endAdornment: (
+                    <InputAdornment position="end">
+                        <IconButton onClick={handleToggleConfirmationPassword}>
+                        {showConfirmationPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                    </InputAdornment>
+                    ),
+                },
+                }}
+            />
+
+            <Typography variant="body2" textAlign={'left'} sx={{whiteSpace: 'pre-line'}} color='textDisabled'>
+              {`Password must:
+              - be atleast 8 characters long
+              - have atleast 1 digit
+              - have atleast 1 lowercase letter
+              - have atleast 1 uppercase letter
+              - have atleast 1 special character`}
+            </Typography>
 
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ backgroundColor: '#000', color: '#fff', py: 1.5, mb: 2, '&:hover': { backgroundColor: '#333' } }}
+              sx={{ backgroundColor: '#000', color: '#fff', py: 1.5, mb: 2, mt: 1, '&:hover': { backgroundColor: '#333' } }}
             >
-              Login
+              Signup
             </Button>
 
             <Typography variant="body2">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" underline="hover">
-                Sign up
+              Already have an account?{' '}
+              <Link href="/" underline="hover">
+                Sign in
               </Link>
             </Typography>
           </Box>
@@ -96,4 +132,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

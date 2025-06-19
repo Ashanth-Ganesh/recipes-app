@@ -1,12 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Pages
 import LoginPage from './login.tsx'
-import { HelmetProvider } from "react-helmet-async";
+import SignupPage from './Signup.tsx'
 
-createRoot(document.getElementById('root')!).render(
-	<StrictMode>
-		<HelmetProvider>
-			<LoginPage />
-		</HelmetProvider>
-	</StrictMode>,
-)
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+
