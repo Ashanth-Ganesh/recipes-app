@@ -30,9 +30,9 @@ async function handleSignupRequest(username: string, email: string, password: st
 	//Feedback declaration
 	let backendFeedbacks: Feedbacks = {
 		usernameFeedback: "",
-    emailFeedback: "",
-    passwordFeedback: "",
-    confirmationPasswordFeedback: ""
+		emailFeedback: "",
+		passwordFeedback: "",
+		confirmationPasswordFeedback: ""
 	};
 	// Development backend url
 	const signupApi = 'http://localhost:8000/signup';
@@ -89,9 +89,9 @@ async function handleSignup(username: string, email: string, password: string, c
 	//Feedback declaration
 	let userFeedbacks: Feedbacks = {
 		usernameFeedback: "",
-    emailFeedback: "",
-    passwordFeedback: "",
-    confirmationPasswordFeedback: ""
+		emailFeedback: "",
+		passwordFeedback: "",
+		confirmationPasswordFeedback: ""
 	};
 	let validInput = true;
 	// Username validation
@@ -171,157 +171,157 @@ const SignupPage = () => {
 		confirmationPasswordFeedback: ""
 	});
 	return (
-	<>
-		<Helmet>
-			<title>Signup | RecipeApp</title>
-			<meta name="description" content="Signup to create your own account to save and schedule your favorite recipes and manage your kitchen inventory." />
-		</Helmet>
+		<>
+			<Helmet>
+				<title>Signup | RecipeApp</title>
+				<meta name="description" content="Signup to create your own account to save and schedule your favorite recipes and manage your kitchen inventory." />
+			</Helmet>
 
-		<Box
-			sx={{
-			backgroundImage: `url(/assets/signup-bg.png)`,
-			backgroundSize: 'cover',
-			backgroundPosition: 'center',
-			minHeight: '100vh',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			p: 0
-			}}
-		>
-			<Container
-				maxWidth="xs"
+			<Box
 				sx={{
-				backgroundColor: 'rgba(255, 255, 255, 0.95)',
-				borderRadius: 3,
-				boxShadow: 3,
-				p: 4,
-				textAlign: 'center'
+				backgroundImage: `url(/assets/signup-bg.png)`,
+				backgroundSize: 'cover',
+				backgroundPosition: 'center',
+				minHeight: '100vh',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				p: 0
 				}}
 			>
-				<Restaurant sx={{ fontSize: 48}} />
-				<Typography variant="h5" fontWeight="bold" gutterBottom>
-					Register
-				</Typography>
-
-				<Box component="form" noValidate sx={{ mt: 1 }}>
-					<TextField
-						label="Username"
-						type="text"
-						value={username}
-						helperText={userFeedbacks.usernameFeedback}
-						error={Boolean(userFeedbacks.usernameFeedback)}
-            onChange={(e) => setUsername(e.target.value)}
-						variant='outlined'
-						fullWidth
-						required
-						margin='normal'
-					/>
-					<TextField
-						label="Email Address"
-						type="email"
-						value={email}
-						helperText={userFeedbacks.emailFeedback}
-						error={Boolean(userFeedbacks.emailFeedback)}
-            onChange={(e) => setEmail(e.target.value)}
-						variant="outlined"
-						fullWidth
-						required
-						margin="normal"
-					/>
-					<TextField
-						label="Password"
-						type={showPassword ? 'text' : 'password'}
-						value={password}
-						helperText={userFeedbacks.passwordFeedback}
-						error={Boolean(userFeedbacks.passwordFeedback)}
-            onChange={(e) => setPassword(e.target.value)}
-						variant="outlined"
-						fullWidth
-						required
-						margin="normal"
-						slotProps={{
-							input: {
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton onClick={handleTogglePassword}>
-											{showPassword ? <VisibilityOff /> : <Visibility />}
-										</IconButton>
-									</InputAdornment>
-								),
-							},
-						}}
-					/>
-
-					<TextField
-						label="Confirm Password"
-						type={showConfirmationPassword ? 'text' : 'password'}
-						value={confirmationPassword}
-						helperText={userFeedbacks.confirmationPasswordFeedback}
-						error={Boolean(userFeedbacks.confirmationPasswordFeedback)}
-            onChange={(e) => setConfirmationPassword(e.target.value)}
-						variant="outlined"
-						fullWidth
-						required
-						margin="normal"
-						slotProps={{
-							input: {
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton onClick={handleToggleConfirmationPassword}>
-											{showConfirmationPassword ? <VisibilityOff /> : <Visibility />}
-										</IconButton>
-									</InputAdornment>
-								),
-							},
-						}}
-					/>
-
-					<Typography variant="body2" textAlign={'left'} sx={{whiteSpace: 'pre-line'}} color='textDisabled'>
-						Password must:
+				<Container
+					maxWidth="xs"
+					sx={{
+					backgroundColor: 'rgba(255, 255, 255, 0.95)',
+					borderRadius: 3,
+					boxShadow: 3,
+					p: 4,
+					textAlign: 'center'
+					}}
+				>
+					<Restaurant sx={{ fontSize: 48}} />
+					<Typography variant="h5" fontWeight="bold" gutterBottom>
+						Register
 					</Typography>
-					<Box textAlign={'left'}>
-						<Typography variant="body2" color={(password.length >= 8 && password.length <= 32) ? 'green' : 'red'}>
-							• Be between 8 and 32 characters long
+
+					<Box component="form" noValidate sx={{ mt: 1 }}>
+						<TextField
+							label="Username"
+							type="text"
+							value={username}
+							helperText={userFeedbacks.usernameFeedback}
+							error={Boolean(userFeedbacks.usernameFeedback)}
+							onChange={(e) => setUsername(e.target.value)}
+							variant='outlined'
+							fullWidth
+							required
+							margin='normal'
+						/>
+						<TextField
+							label="Email Address"
+							type="email"
+							value={email}
+							helperText={userFeedbacks.emailFeedback}
+							error={Boolean(userFeedbacks.emailFeedback)}
+							onChange={(e) => setEmail(e.target.value)}
+							variant="outlined"
+							fullWidth
+							required
+							margin="normal"
+						/>
+						<TextField
+							label="Password"
+							type={showPassword ? 'text' : 'password'}
+							value={password}
+							helperText={userFeedbacks.passwordFeedback}
+							error={Boolean(userFeedbacks.passwordFeedback)}
+							onChange={(e) => setPassword(e.target.value)}
+							variant="outlined"
+							fullWidth
+							required
+							margin="normal"
+							slotProps={{
+								input: {
+									endAdornment: (
+										<InputAdornment position="end">
+											<IconButton onClick={handleTogglePassword}>
+												{showPassword ? <VisibilityOff /> : <Visibility />}
+											</IconButton>
+										</InputAdornment>
+									),
+								},
+							}}
+						/>
+
+						<TextField
+							label="Confirm Password"
+							type={showConfirmationPassword ? 'text' : 'password'}
+							value={confirmationPassword}
+							helperText={userFeedbacks.confirmationPasswordFeedback}
+							error={Boolean(userFeedbacks.confirmationPasswordFeedback)}
+							onChange={(e) => setConfirmationPassword(e.target.value)}
+							variant="outlined"
+							fullWidth
+							required
+							margin="normal"
+							slotProps={{
+								input: {
+									endAdornment: (
+										<InputAdornment position="end">
+											<IconButton onClick={handleToggleConfirmationPassword}>
+												{showConfirmationPassword ? <VisibilityOff /> : <Visibility />}
+											</IconButton>
+										</InputAdornment>
+									),
+								},
+							}}
+						/>
+
+						<Typography variant="body2" textAlign={'left'} sx={{whiteSpace: 'pre-line'}} color='textDisabled'>
+							Password must:
 						</Typography>
-						<Typography variant="body2" color={/\d/.test(password) ? 'green' : 'red'}>
-							• Have at least 1 digit
-						</Typography>
-						<Typography variant="body2" color={/^(?=.*[A-Z])(?=.*[a-z])/.test(password) ? 'green' : 'red'}>
-							• Have at least 1 uppercase and lowercase letter
-						</Typography>
-						<Typography variant="body2" color={/[-_.]/.test(password) ? 'green' : 'red'}>
-							• Have at least 1 special character (-_.)
+						<Box textAlign={'left'}>
+							<Typography variant="body2" color={(password.length >= 8 && password.length <= 32) ? 'green' : 'red'}>
+								• Be between 8 and 32 characters long
+							</Typography>
+							<Typography variant="body2" color={/\d/.test(password) ? 'green' : 'red'}>
+								• Have at least 1 digit
+							</Typography>
+							<Typography variant="body2" color={/^(?=.*[A-Z])(?=.*[a-z])/.test(password) ? 'green' : 'red'}>
+								• Have at least 1 uppercase and lowercase letter
+							</Typography>
+							<Typography variant="body2" color={/[-_.]/.test(password) ? 'green' : 'red'}>
+								• Have at least 1 special character (-_.)
+							</Typography>
+						</Box>
+
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							onClick={async (event: React.MouseEvent<HTMLButtonElement>) => {
+								event.preventDefault();
+								setUserFeedbacks(await handleSignup(username, email, password, confirmationPassword));
+								console.log(userFeedbacks.usernameFeedback);
+								console.log(userFeedbacks.emailFeedback);
+								console.log(userFeedbacks.passwordFeedback);
+								console.log(userFeedbacks.confirmationPasswordFeedback);
+							}}
+							sx={{ backgroundColor: '#000', color: '#fff', py: 1.5, mb: 2, mt: 1, '&:hover': { backgroundColor: '#333' } }}
+						>
+							Signup
+						</Button>
+
+						<Typography variant="body2">
+							Already have an account?{' '}
+							<Link href="/" underline="hover">
+								Sign in
+							</Link>
 						</Typography>
 					</Box>
-
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						onClick={async (event: React.MouseEvent<HTMLButtonElement>) => {
-							event.preventDefault();
-							setUserFeedbacks(await handleSignup(username, email, password, confirmationPassword));
-							console.log(userFeedbacks.usernameFeedback);
-							console.log(userFeedbacks.emailFeedback);
-							console.log(userFeedbacks.passwordFeedback);
-							console.log(userFeedbacks.confirmationPasswordFeedback);
-						}}
-						sx={{ backgroundColor: '#000', color: '#fff', py: 1.5, mb: 2, mt: 1, '&:hover': { backgroundColor: '#333' } }}
-					>
-					  Signup
-					</Button>
-
-					<Typography variant="body2">
-						Already have an account?{' '}
-						<Link href="/" underline="hover">
-							Sign in
-						</Link>
-					</Typography>
-				</Box>
-			</Container>
-		</Box>
-	</>
+				</Container>
+			</Box>
+		</>
 	);
 };
 

@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // Pages
-import LoginPage from './login.tsx'
-import SignupPage from './Signup.tsx'
-
+import LoginPage from './login.tsx';
+import SignupPage from './Signup.tsx';
+import AppPage from './AppPage.tsx';
 
 function App() {
   return (
@@ -10,6 +10,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/home" element={<AppPage />} />
+      
+        
       </Routes>
     </BrowserRouter>
   );
